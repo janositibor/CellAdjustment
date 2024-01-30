@@ -12,7 +12,7 @@ public class Coordinates {
     }
 
     public void shiftZ(double shift){
-        z+=shift;
+        z-=shift;
     }
 
     public double getX() {
@@ -26,7 +26,7 @@ public class Coordinates {
 
     @Override
     public String toString() {
-        return Cell.SEPARATOR + x +
+        return x +
                 Cell.SEPARATOR + y +
                 Cell.SEPARATOR + z;
     }

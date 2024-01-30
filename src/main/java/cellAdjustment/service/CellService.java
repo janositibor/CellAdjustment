@@ -32,6 +32,7 @@ public class CellService implements StringListInputNeeded {
     private void setCellsList() {
         String line;
         Cell inputCell;
+        cellsList=new ArrayList<>();
 
         for (int i = 1; i < input.size(); i++) {
             line=input.get(i);
@@ -96,6 +97,7 @@ public class CellService implements StringListInputNeeded {
         Cell cell;
         for (int i = 0; i < cellsList.size() ; i++) {
             cell=cellsList.get(i);
+//            System.out.println("correction - x: "+cell.getCoordinates().getX()+" y: "+cell.getCoordinates().getY()+" shift: "+parameters.getShift(cell.getCoordinates().getX(),cell.getCoordinates().getY()));
             cell.getCoordinates().shiftZ(parameters.getShift(cell.getCoordinates().getX(),cell.getCoordinates().getY()));;
         }
     }

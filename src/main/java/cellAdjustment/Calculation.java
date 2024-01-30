@@ -17,7 +17,7 @@ public class Calculation implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println(parameters.getParametersAsStringList());
+//        System.out.println(parameters.getParametersAsStringList());
         cellService.correction(parameters);
         cellService.writeCellsIntoOutputFile();
 

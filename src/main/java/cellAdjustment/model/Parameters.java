@@ -18,13 +18,14 @@ public class Parameters implements StringListInputNeeded{
     }
 
     private void setParametersMatrix() {
+        String line;
+        String[] fieldsArray;
         for (int i = 0; i < input.size(); i++) {
-            String line=input.get(i);
+            line=input.get(i);
             if(!line.isBlank()) {
-                String[] fieldsArray;
                 fieldsArray=line.split(SEPARATOR);
                 for (int j = 0; j < fieldsArray.length; j++) {
-                    fittedParameters[i][j]=Double.parseDouble(fieldsArray[j]);
+                    fittedParameters[j][i]=Double.parseDouble(fieldsArray[j]);
                 }
             }
         }
@@ -66,15 +67,16 @@ public class Parameters implements StringListInputNeeded{
         }
         return -1.0*output;
     }
+
     public List<String> getParametersAsStringList(){
         List<String> output = new ArrayList<>();
         StringBuilder row=new StringBuilder();
-        for (int polyOrderX = numberOfOrderX; polyOrderX >= 0; --polyOrderX) {
-            for (int polyOrderY = numberOfOrderY; polyOrderY >= 0; --polyOrderY) {
-                row.append(String.valueOf(fittedParameters[polyOrderY][polyOrderX]));
+        for (int polyOrderX = 0; polyOrderX <= numberOfOrderX; polyOrderX++) {
+            for (int polyOrderY = 0; polyOrderY <=  numberOfOrderY; polyOrderY++) {
                 if(polyOrderY>0){
                     row.append(";");
                 }
+                row.append(String.valueOf(fittedParameters[polyOrderY][polyOrderX]));
             }
             output.add(row.toString());
             row=new StringBuilder();
